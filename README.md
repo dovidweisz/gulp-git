@@ -7,7 +7,7 @@ This is an attempt to rewrite the wonderfull [gulp-git](https://www.npmjs.com/pa
 
 (MIT License)
 
-Copyright (c) 2015 Steve Lacy <me@slacy.me> slacy.me
+Copyright (c) 2017 Dovid Weisz
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
