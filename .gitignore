@@ -12,6 +12,9 @@ pids
 logs
 results
 
+.dist/
+.idea/
+
 npm-debug.log
 node_modules
 *.sublime*

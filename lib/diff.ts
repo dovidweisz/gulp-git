@@ -14,8 +14,18 @@ var catFile = require('./catFile');
 // https://git-scm.com/docs/git-diff#_raw_output_format
 var RE_DIFF_RESULT = /\:(\w+)\s+(\w+)\s+(\w+)(?:\.{3})?\s+(\w+)(?:\.{3})?\s+(\w+)(\u0000|\t|\s+)(.+?)(?:\6|\n)(?:([^:]+?)\6)?/g;
 
+interface ResultItem {
+  srcMode: string,
+  dstMode: string,
+  srcHash: string,
+  dstHash: string,
+  status: string,
+  srcPath: string,
+  dstPath: string,
+}
+
 function getReaslt(data) {
-  var result = [];
+  const result: ResultItem[] = [];
   if (data && data.length) {
     var str = data.toString();
     var match;

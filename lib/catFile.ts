@@ -4,10 +4,10 @@
  * @module gulp-git/lib/catFile
  */
 
-var through = require('through2');
-var gutil = require('gulp-util');
-var spawn = require('child_process').spawn;
-var stripBom = require('strip-bom-stream');
+import * as through from 'through2';
+import * as gutil from 'gulp-util';
+import { spawn } from 'child_process';
+const stripBom = require('strip-bom-stream');
 
 /**
  * get a buffer.
@@ -72,7 +72,7 @@ module.exports = function (opt) {
      * @param {Buffer} contents file contents
      * @returns {void}
      */
-    var sendFile = function(contents) {
+    var sendFile = function(contents: string | any = null) {
       if (contents) {
         file.contents = contents;
       }
@@ -91,7 +91,7 @@ module.exports = function (opt) {
     var that = this;
 
     readStream(catFile.stderr, function(error) {
-      that.emit('error', new gutil.PluginError('gulp-git', 'Command failed: ' + catFile.spawnargs.join(' ').trim() + '\n' + error.toString()));
+      that.emit('error', new gutil.PluginError('gulp-git', 'Command failed: ' + '\n' + error.toString()));
     });
 
     if (opt.stripBOM) {

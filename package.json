@@ -1,15 +1,18 @@
 {
-  "name": "gulp-git",
+  "name": "rxjs-git",
   "description": "Git plugin for gulp (gulpjs.com)",
   "version": "2.4.2",
   "homepage": "http://github.com/stevelacy/gulp-git",
   "repository": {
     "type": "git",
-    "url": "http://github.com/stevelacy/gulp-git.git"
+    "url": "http://github.com/dovidweisz/rxjs-git.git"
   },
-  "author": "Steve Lacy me@slacy.me (slacy.me)",
+  "author": "Dovid Weisz",
   "main": "./index.js",
   "dependencies": {
+    "@types/gulp-util": "^3.0.31",
+    "@types/through2": "^2.0.33",
+    "@types/vinyl": "^2.0.0",
     "any-shell-escape": "^0.1.1",
     "gulp-util": "^3.0.8",
     "require-dir": "^0.3.2",
@@ -21,12 +24,14 @@
     "eslint": "^3.17.0",
     "mocha": "^3.2.0",
     "rimraf": "^2.6.1",
-    "should": "^11.2.0"
+    "should": "^11.2.0",
+    "typescript": "^2.4.2"
   },
   "scripts": {
     "docs": "rimraf docs/* && jsdoc ./index.js ./lib --recurse --destination ./docs",
     "lint": "rimraf test/repo test/tmp && eslint ./index.js ./examples/ ./lib/ ./test/",
-    "test": "mocha --reporter spec --timeout 6000 test/main.js && npm run lint"
+    "test": "mocha --reporter spec --timeout 6000 test/main.js && npm run lint",
+    "tsc": "tsc"
   },
   "engines": {
     "node": ">= 0.9.0"

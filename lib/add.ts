@@ -1,19 +1,20 @@
-'use strict';
+import * as through from 'through2';
+import * as gutil from 'gulp-util';
+import * as File from 'vinyl';
+import { exec } from 'child_process';
+const escape = require('any-shell-escape');
 
-var through = require('through2');
-var gutil = require('gulp-util');
-var exec = require('child_process').exec;
-var escape = require('any-shell-escape');
+
 
 module.exports = function (opt) {
   if (!opt) opt = {};
   if (!opt.args) opt.args = ' ';
 
-  var paths = [];
-  var files = [];
-  var fileCwd = process.cwd;
+  let paths: string[] = [];
+  let files: File[] = [];
+  let fileCwd = process.cwd();
 
-  var write = function(file, enc, cb) {
+  const write = (file: File, enc, cb) => {
     paths.push(file.path);
     files.push(file);
     fileCwd = file.cwd;
